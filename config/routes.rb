@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  devise_for :users, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+    },
+   controllers: {
+     sessions: 'users/sessions',
+     registrations: 'users/registrations'
+   }
+
   get "todos/index" # working well
   get "todos/create" # render teh form
   post "todos/create" # working well
