@@ -19,7 +19,8 @@ class Users::SessionsController < Devise::SessionsController
     if current_user
       render json: {
         status: 200,
-        message: 'Logged out successfully.'
+        # message: 'Logged out successfully.',
+        message: "bye bye #{current_user.name}"
       }, status: :ok
     else
       render json: {

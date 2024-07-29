@@ -34,7 +34,8 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    head :no_content
+    # head :no_content
+    render json: "#{@todo.title} was deleted"
   end
 
   def show

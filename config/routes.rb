@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
 
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
@@ -14,9 +16,9 @@ Rails.application.routes.draw do
   get "todos/create" # render teh form
   post "todos/create" # working well
   get "todos/edit" # render form
-  put 'todos/edit/:id', to: 'todos#update' # working well
-  delete "todos/delete/:id", to: 'todos#destroy' # working well
-  get "todos/show/:id", to: 'todos#show' # working well
+  put 'todos/:id', to: 'todos#update' # working well
+  delete "todos/:id", to: 'todos#destroy' # working well
+  get "todos/:id", to: 'todos#show' # working well
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
